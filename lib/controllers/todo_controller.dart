@@ -1,22 +1,23 @@
-//    ///
+//   ///
 //  Import LIBRARIES
 import 'package:signals_flutter/signals_flutter.dart';
 //  Import FILES
 import '../models/todo_model.dart';
 //  SIGNALS
-//   //   ///
+//  //  //   ///
 
 class TodoController {
-  final todos = <TodoModel>[].toSignal();
+  // final List<TodoModel> todos = <TodoModel>[].toSignal();
+  final ListSignal<TodoModel> todos = <TodoModel>[].toSignal();
 
   late final Computed<String> todosStatusString = computed(() {
     final notCompletedTodos = todos.where((todo) => !todo.completed);
-    if (notCompletedTodos.isEmpty) {
-      return 'You do not have any task';
+    if (todos.isEmpty) {
+      return 'You don not have any tasks';
     } else if (notCompletedTodos.isEmpty) {
-      return 'Congratulations, all tasks are completed!';
+      return 'All tasks completed';
     } else {
-      return 'You have ${notCompletedTodos.length} task${notCompletedTodos.length == 1 ? '' : 's'} to complete.';
+      return 'You have ${notCompletedTodos.length} task${notCompletedTodos.length == 1 ? '' : 's'} left to complete.';
     }
   });
 
@@ -36,17 +37,6 @@ class TodoController {
         return todo;
       }
     }).toList();
+    // todo.completed = !todo.completed;
   }
-
-  // void onToggleAll() {
-  //   todos.forEach((todo) => todo.toggle())
-  // }
-
-  // void onRemoveCompleted() {
-  //   todos.removeWhere((todo) => todo.completed);
-  // }
-
-  // void onRemoveAll() {
-  //   todos.clear();
-  // }
 }

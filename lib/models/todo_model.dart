@@ -1,9 +1,9 @@
-//    ///
+//   ///
 //  Import LIBRARIES
 import 'package:uuid/uuid.dart';
 //  Import FILES
 //  SIGNALS
-//   //   ///
+//  //  //   ///
 
 class TodoModel {
   final String id;
@@ -12,9 +12,9 @@ class TodoModel {
   final bool completed;
 
   TodoModel(this.title, {String? descriptionC, String? idC, bool? completedC})
-      : id = idC ?? const Uuid().v4(),
-        completed = completedC ?? false,
-        description = descriptionC ?? '';
+      : description = descriptionC,
+        id = idC ?? const Uuid().v4(),
+        completed = completedC ?? false;
 
   TodoModel copyWith({
     String? id,

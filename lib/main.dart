@@ -1,10 +1,10 @@
-//    ///
+//   ///
 //  Import LIBRARIES
 import 'package:flutter/material.dart';
 //  Import FILES
-import 'screens/todos_screen.dart';
+import 'screens/todo_screen.dart';
 //  SIGNALS
-//   //   ///
+//  //  //   ///
 
 void main() {
   runApp(const MyApp());
@@ -16,13 +16,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Todo App - Example with Signals',
+      title: 'Singnals Todo App - Learning example',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const TodosScreen(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.dark,
+      // themeMode: ThemeMode.system,
+      home: const TodoScreen(),
     );
   }
 }
